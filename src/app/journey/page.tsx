@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { useRef, useState } from 'react';
 import styles from './page.module.css';
 
 const JourneyPage = () => {
@@ -140,6 +140,7 @@ const Chapter4 = () => {
 };
 
 const Chapter5 = () => {
+    const [activeVideo, setActiveVideo] = useState(0);
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -149,26 +150,58 @@ const Chapter5 = () => {
     const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
     const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
+    const videos = [
+        { id: 0, src: "/assets/vid1.MOV", title: "Midnight Memories" },
+        { id: 1, src: "/assets/vid2.MOV", title: "Captured Joy" },
+        { id: 2, src: "/assets/vid3.MOV", title: "Our Future" },
+    ];
+
     return (
         <section ref={ref} className={styles.section}>
-            <motion.div style={{ scale, opacity }} className={styles.glassCard}>
+            <motion.div style={{ scale, opacity }} className={styles.videoGallery}>
                 <h2 className={styles.chapterTitle}>Captured in Motion</h2>
-                <p className={styles.storyText}>
-                    Every glance, every smile, every silent understanding.
-                    These are the fragments of us that I hold onto most dearly.
-                </p>
-                <div className={styles.videoFrame}>
-                    <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="auto"
-                        className={styles.journeyVideo}
-                    >
-                        <source src="/assets/vid2.MOV" type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
+
+                <div className={styles.mainVideoContainer}>
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeVideo}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.5 }}
+                            className={styles.videoFrame}
+                        >
+                            <video
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                preload="auto"
+                                className={styles.journeyVideo}
+                            >
+                                <source src={videos[activeVideo].src} type="video/mp4" />
+                            </video>
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+
+                <div className={styles.videoPicker}>
+                    {videos.map((vid) => (
+                        <motion.div
+                            key={vid.id}
+                            className={`${styles.videoThumb} ${activeVideo === vid.id ? styles.activeThumb : ''}`}
+                            onClick={() => setActiveVideo(vid.id)}
+                            whileHover={{ scale: 1.1, zIndex: 10 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <div className={styles.thumbOverlay}>
+                                <span>{vid.title}</span>
+                            </div>
+                            <video muted className={styles.thumbPreview}>
+                                <source src={vid.src} type="video/mp4" />
+                            </video>
+                        </motion.div>
+                    ))}
                 </div>
             </motion.div>
         </section>
