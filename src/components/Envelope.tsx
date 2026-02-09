@@ -11,10 +11,10 @@ const Envelope = () => {
 
     const handleOpen = () => {
         setIsOpen(true);
-        // Play sound effects here if possible
-        setTimeout(() => {
-            router.push('/journey');
-        }, 2500); // Wait for animation to finish
+    };
+
+    const handleContinue = () => {
+        router.push('/journey');
     };
 
     return (
@@ -48,6 +48,17 @@ const Envelope = () => {
                             I’m grateful for every memory, every joke, every moment we share.
                             Today and always, you have my heart, my support, and my sincerest love. 💕
                         </p>
+                        <motion.button
+                            className={styles.continueButton}
+                            onClick={handleContinue}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: isOpen ? 1 : 0 }}
+                            transition={{ delay: 2.5 }}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            Continue Our Journey →
+                        </motion.button>
                     </div>
                 </div>
 
