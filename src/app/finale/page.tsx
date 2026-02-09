@@ -32,9 +32,25 @@ const FinalePage = () => {
         return () => clearInterval(interval);
     }, []);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setIsSent(true);
+
+        const formData = new FormData();
+        formData.append('form-name', 'valentine-message');
+        formData.append('message', response);
+
+        try {
+            await fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData as any).toString(),
+            });
+            setIsSent(true);
+        } catch (error) {
+            console.error("Form submission error:", error);
+            // Fallback to showing success anyway for UX, but log error
+            setIsSent(true);
+        }
     };
 
     return (
@@ -68,9 +84,16 @@ const FinalePage = () => {
                 transition={{ delay: 2, duration: 1 }}
             >
                 {!isSent ? (
-                    <form className={styles.form} onSubmit={handleSubmit}>
+                    <form
+                        className={styles.form}
+                        onSubmit={handleSubmit}
+                        name="valentine-message"
+                        data-netlify="true"
+                    >
+                        <input type="hidden" name="form-name" value="valentine-message" />
                         <h3>Leave a note back</h3>
                         <textarea
+                            name="message"
                             value={response}
                             onChange={(e) => setResponse(e.target.value)}
                             placeholder="Write your heart out..."
