@@ -30,6 +30,8 @@
     height: 100%;
     background: radial-gradient(circle at center, rgba(45, 27, 61, 0.4) 0%, rgba(10, 10, 10, 0.8) 100%);
     z-index: 1;
+    pointer-events: none;
+    /* Crucial: allow clicks to pass through to elements below */
 }
 
 .hero {
@@ -54,6 +56,8 @@
 .interaction {
     max-width: 500px;
     width: 100%;
+    position: relative;
+    z-index: 10;
 }
 
 .form {
@@ -114,6 +118,8 @@
     display: flex;
     gap: 1.5rem;
     margin-top: 4rem;
+    position: relative;
+    z-index: 10;
 }
 
 .emoji {
