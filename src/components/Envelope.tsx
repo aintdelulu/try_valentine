@@ -8,8 +8,17 @@ import styles from './Envelope.module.css';
 const Envelope = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [showLetterOnly, setShowLetterOnly] = useState(false);
+    const [hasReachedBottom, setHasReachedBottom] = useState(false);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const router = useRouter();
+
+    const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+        const target = e.currentTarget;
+        const reachedBottom = target.scrollHeight - target.scrollTop <= target.clientHeight + 50;
+        if (reachedBottom && showLetterOnly) {
+            setHasReachedBottom(true);
+        }
+    };
 
     const handleOpen = () => {
         setIsOpen(true);
@@ -46,7 +55,7 @@ const Envelope = () => {
                     </motion.div>
                 </div>
 
-                <div className={styles.back}>
+                <div className={styles.back} onScroll={handleScroll}>
                     <div className={styles.letterContent}>
                         <h2>Happy Valentine’s Day, Buds!</h2>
                         <p>
@@ -55,6 +64,9 @@ const Envelope = () => {
                             You mean so much to me, not because of what you give, but because of who you are.
                             I’m grateful for every memory, every joke, every moment we share.
                             Today and always, you have my heart, my support, and my sincerest love. 💕
+                        </p>
+                        <p>
+                            P.S. Scroll all the way down to see where our journey takes us next...
                         </p>
                     </div>
                 </div>
@@ -84,13 +96,13 @@ const Envelope = () => {
             </motion.div>
 
             <AnimatePresence>
-                {isOpen && !isTransitioning && (
+                {showLetterOnly && hasReachedBottom && !isTransitioning && (
                     <motion.button
                         className={styles.continueButton}
                         onClick={handleContinue}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 2.8, duration: 0.5 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >

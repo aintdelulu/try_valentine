@@ -132,6 +132,10 @@
     overflow-y: auto;
     visibility: hidden;
     /* Hide until opened to prevent bleed through */
+    transition: transform 0.8s 1.2s ease, z-index 0s 1.2s;
+    background: #fdf5e6;
+    /* Initial paper color */
+    border: 1px solid #d4c4a8;
 }
 
 .envelope.open .back {
@@ -144,24 +148,47 @@
 
 .envelope.showLetterOnly .back {
     transform: translateY(0) translateZ(5px);
-    width: 100%;
-    height: auto;
-    min-height: 400px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    border-radius: 24px;
-    padding: 3rem;
-    color: white;
+    width: 90%;
+    max-width: 600px;
+    height: 70vh;
+    background: #fdf5e6;
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
+        url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    border: 1px solid #d4c4a8;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 0 100px rgba(139, 69, 19, 0.05);
+    /* Burnt edge feel */
+    border-radius: 4px;
+    /* Less rounded for old paper */
+    padding: 4rem 2rem;
+    color: #3b2f2f;
+    /* Coffee brown text */
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #d4c4a8 transparent;
+}
+
+.envelope.showLetterOnly .back::-webkit-scrollbar {
+    width: 6px;
+}
+
+.envelope.showLetterOnly .back::-webkit-scrollbar-thumb {
+    background: #d4c4a8;
+    border-radius: 10px;
 }
 
 .envelope.showLetterOnly .letterContent h2 {
-    color: var(--soft-rose);
+    color: #5d4037;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
 }
 
 .envelope.showLetterOnly .letterContent p {
-    color: #eee;
+    color: #3b2f2f;
+    font-family: inherit;
 }
 
 .letterContent {
