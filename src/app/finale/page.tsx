@@ -35,8 +35,8 @@ const FinalePage = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        // I'll use a placeholder for the endpoint
-        const endpoint = "https://formspree.io/f/mqaegeoo"; // REPLACE THIS WITH YOUR FORM ID
+        // Connected to user's Formspree endpoint
+        const endpoint = "https://formspree.io/f/mqedapoz";
 
         try {
             const res = await fetch(endpoint, {
