@@ -7,11 +7,15 @@ import styles from './Envelope.module.css';
 
 const Envelope = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [showLetterOnly, setShowLetterOnly] = useState(false);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const router = useRouter();
 
     const handleOpen = () => {
         setIsOpen(true);
+        setTimeout(() => {
+            setShowLetterOnly(true);
+        }, 2000); // Trigger fade after letter slides out
     };
 
     const handleContinue = () => {
@@ -24,7 +28,7 @@ const Envelope = () => {
     return (
         <div className={styles.wrapper}>
             <motion.div
-                className={`${styles.envelope} ${isOpen ? styles.open : ''}`}
+                className={`${styles.envelope} ${isOpen ? styles.open : ''} ${showLetterOnly ? styles.showLetterOnly : ''}`}
                 initial={{ y: 50, opacity: 0.5 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8 }}
