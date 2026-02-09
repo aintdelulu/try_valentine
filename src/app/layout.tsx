@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ParticleBackground from "@/components/ParticleBackground";
+import AudioToggle from "@/components/AudioToggle";
 
 export const metadata: Metadata = {
   title: "Ethereal Midnight",
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ParticleBackground />
+        <AudioToggle />
         <main>{children}</main>
       </body>
     </html>

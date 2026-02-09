@@ -54,10 +54,10 @@ const Chapter2 = () => {
     const x = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
 
     const polaroids = [
-        { id: 2, src: "/assets/img2.jpg", caption: "Sunset Glow" },
-        { id: 3, src: "/assets/img3.jpg", caption: "Adventure Awaits" },
-        { id: 4, src: "/assets/img4.jpg", caption: "City Lights" },
-        { id: 5, src: "/assets/img5.jpg", caption: "Cozy Moments" },
+        { id: 2, src: "/assets/img2.jpg", caption: "Love looks good on me 💖" },
+        { id: 3, src: "/assets/img3.jpg", caption: "Proof that love is real 💍" },
+        { id: 4, src: "/assets/img4.jpg", caption: "Cupid understood the assignment 🏹💞" },
+        { id: 5, src: "/assets/img5.jpg", caption: "All hearts, no regrets 💘" },
     ];
 
     return (

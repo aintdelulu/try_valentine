@@ -1,0 +1,23 @@
+.toggle {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    background: var(--frosted-white);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--champagne-gold);
+    padding: 0.75rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
