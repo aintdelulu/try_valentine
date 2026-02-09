@@ -158,8 +158,15 @@ const Chapter5 = () => {
                     These are the fragments of us that I hold onto most dearly.
                 </p>
                 <div className={styles.videoFrame}>
-                    <video autoPlay loop muted playsInline className={styles.journeyVideo}>
-                        <source src="/assets/vid2.MOV" type="video/quicktime" />
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="auto"
+                        className={styles.journeyVideo}
+                    >
+                        <source src="/assets/vid2.MOV" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                 </div>

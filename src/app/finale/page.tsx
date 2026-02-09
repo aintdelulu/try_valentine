@@ -40,8 +40,15 @@ const FinalePage = () => {
     return (
         <div className={styles.container}>
             {/* Background Video */}
-            <video autoPlay loop muted playsInline className={styles.bgVideo}>
-                <source src="/assets/vid1.MOV" type="video/quicktime" />
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                className={styles.bgVideo}
+            >
+                <source src="/assets/vid1.MOV" type="video/mp4" />
             </video>
             <div className={styles.overlay} />
 
