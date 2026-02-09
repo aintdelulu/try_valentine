@@ -35,20 +35,24 @@ const FinalePage = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        const formData = new FormData();
-        formData.append('form-name', 'valentine-message');
-        formData.append('message', response);
+        // I'll use a placeholder for the endpoint
+        const endpoint = "https://formspree.io/f/mqaegeoo"; // REPLACE THIS WITH YOUR FORM ID
 
         try {
-            await fetch("/", {
+            const res = await fetch(endpoint, {
                 method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData as any).toString(),
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: response }),
             });
-            setIsSent(true);
+
+            if (res.ok) {
+                setIsSent(true);
+            } else {
+                // Fallback to showing success anyway for UX
+                setIsSent(true);
+            }
         } catch (error) {
             console.error("Form submission error:", error);
-            // Fallback to showing success anyway for UX, but log error
             setIsSent(true);
         }
     };
@@ -87,10 +91,7 @@ const FinalePage = () => {
                     <form
                         className={styles.form}
                         onSubmit={handleSubmit}
-                        name="valentine-message"
-                        data-netlify="true"
                     >
-                        <input type="hidden" name="form-name" value="valentine-message" />
                         <h3>Leave a note back</h3>
                         <textarea
                             name="message"
