@@ -7,6 +7,7 @@ import styles from './Envelope.module.css';
 
 const Envelope = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isTransitioning, setIsTransitioning] = useState(false);
     const router = useRouter();
 
     const handleOpen = () => {
@@ -14,7 +15,10 @@ const Envelope = () => {
     };
 
     const handleContinue = () => {
-        router.push('/journey');
+        setIsTransitioning(true);
+        setTimeout(() => {
+            router.push('/journey');
+        }, 1500);
     };
 
     return (
@@ -88,12 +92,12 @@ const Envelope = () => {
 
             {/* Mask Transition Overlay */}
             <AnimatePresence>
-                {isOpen && (
+                {isTransitioning && (
                     <motion.div
                         className={styles.mask}
-                        initial={{ clipPath: 'radial-gradient(circle, transparent 0%, transparent 0%)' }}
-                        animate={{ clipPath: 'radial-gradient(circle, transparent 0%, transparent 150%)' }}
-                        transition={{ duration: 1.5, delay: 1, ease: "easeInOut" }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1 }}
                     />
                 )}
             </AnimatePresence>
