@@ -13,9 +13,12 @@
 
 .envelope {
     position: relative;
-    width: 450px;
-    height: 300px;
-    background: #fdf5e6;
+    width: 480px;
+    /* Slightly wider */
+    height: 320px;
+    /* Slightly taller */
+    background: #fffcf5;
+    /* Cleaner paper color */
     transform-style: preserve-3d;
     box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5);
     transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -39,9 +42,9 @@
     left: 0;
     width: 0;
     height: 0;
-    border-left: 225px solid transparent;
-    border-right: 225px solid transparent;
-    border-top: 150px solid #ead7bb;
+    border-left: 240px solid transparent;
+    border-right: 240px solid transparent;
+    border-top: 160px solid #ead7bb;
     /* Darker paper for flap */
     transform-origin: top;
     transition: transform 0.6s 0.6s ease;
@@ -59,9 +62,9 @@
     bottom: 0;
     width: 0;
     height: 0;
-    border-left: 225px solid #fdf5e6;
-    border-right: 225px solid #fdf5e6;
-    border-bottom: 150px solid #f3e5ab;
+    border-left: 240px solid #fdf5e6;
+    border-right: 240px solid #fdf5e6;
+    border-bottom: 160px solid #f3e5ab;
     z-index: 2;
     transform: translateZ(1px);
 }
@@ -113,7 +116,8 @@
 }
 
 .envelope.open .back {
-    transform: translateY(-300px) translateZ(5px);
+    transform: translateY(-350px) translateZ(5px);
+    /* Lift higher */
     z-index: 5;
     visibility: visible;
 }
@@ -131,11 +135,14 @@
 }
 
 .letterContent p {
-    color: #333;
+    color: #1a1a1a;
+    /* Darker for better contrast */
     font-family: var(--font-sans);
-    line-height: 1.6;
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+    line-height: 1.8;
+    /* More spacing */
+    font-size: 1.2rem;
+    /* Larger font */
+    margin-bottom: 2.5rem;
     text-align: center;
 }
 
