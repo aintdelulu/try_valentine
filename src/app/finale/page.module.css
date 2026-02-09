@@ -134,3 +134,29 @@
 .emoji:hover {
     filter: grayscale(0);
 }
+
+.muteToggle {
+    position: fixed;
+    top: 20px;
+    right: 80px;
+    /* Space for audio toggle if needed, or just offset */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.muteToggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--champagne-gold);
+    transform: scale(1.1);
+}

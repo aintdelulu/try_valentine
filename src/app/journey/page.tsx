@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import { Volume2, VolumeX } from 'lucide-react';
 import styles from './page.module.css';
 
 const JourneyPage = () => {
@@ -142,6 +143,7 @@ const Chapter4 = () => {
 
 const Chapter5 = () => {
     const [activeVideo, setActiveVideo] = useState(0);
+    const [isMuted, setIsMuted] = useState(false);
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -176,11 +178,21 @@ const Chapter5 = () => {
                                 autoPlay
                                 loop
                                 playsInline
+                                muted={isMuted}
                                 preload="auto"
                                 className={styles.journeyVideo}
                             >
                                 <source src={videos[activeVideo].src} type="video/mp4" />
                             </video>
+
+                            <motion.button
+                                className={styles.muteToggle}
+                                onClick={() => setIsMuted(!isMuted)}
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                            >
+                                {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+                            </motion.button>
                         </motion.div>
                     </AnimatePresence>
                 </div>
