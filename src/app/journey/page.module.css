@@ -1,0 +1,162 @@
+.container {
+    background: linear-gradient(to bottom, #0a0a0a, #1a0f25, #2d1b3d, #0a0a0a);
+}
+
+.section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    overflow: hidden;
+}
+
+.chapterTitle {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* Chapter 1 */
+.glassCard {
+    max-width: 800px;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    text-align: center;
+}
+
+.date {
+    font-family: var(--font-sans);
+    color: var(--soft-rose);
+    letter-spacing: 0.2rem;
+    margin-bottom: 2rem;
+}
+
+.storyText {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+
+.photoFrame {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+    padding: 8px;
+    background: var(--champagne-gold);
+}
+
+.placeholderPhoto {
+    width: 100%;
+    height: 100%;
+    background: #222;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--soft-rose);
+}
+
+/* Chapter 2 */
+.horizontalGallery {
+    display: flex;
+    gap: 3rem;
+    padding: 2rem;
+    width: 200%;
+    /* Important for horizontal movement */
+    justify-content: center;
+}
+
+.polaroid {
+    flex-shrink: 0;
+    width: 250px;
+    background: white;
+    padding: 1rem 1rem 3rem 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.photoContainer {
+    width: 100%;
+    height: 200px;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.caption {
+    font-family: 'Dancing Script', cursive, serif;
+    /* Fallback to serif */
+    color: #333;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* Chapter 3 */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.noteCard {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--champagne-gold);
+    text-align: center;
+    font-family: var(--font-sans);
+}
+
+/* Chapter 4 */
+.countdownWrapper {
+    text-align: center;
+}
+
+.timer {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    justify-content: center;
+}
+
+.timeUnit {
+    display: flex;
+    flex-direction: column;
+}
+
+.timeUnit span {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--champagne-gold);
+}
+
+.timeUnit small {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: var(--soft-rose);
+}
+
+.finaleButton {
+    padding: 1rem 2.5rem;
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    background: var(--champagne-gold);
+    color: var(--midnight-black);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+}
