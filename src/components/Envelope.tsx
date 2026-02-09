@@ -21,9 +21,9 @@ const Envelope = () => {
         <div className={styles.wrapper}>
             <motion.div
                 className={`${styles.envelope} ${isOpen ? styles.open : ''}`}
-                initial={{ y: 100, opacity: 0 }}
+                initial={{ y: 50, opacity: 0.5 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 0.8 }}
             >
                 <div className={styles.front}>
                     <div className={styles.flap}></div>
@@ -40,8 +40,14 @@ const Envelope = () => {
 
                 <div className={styles.back}>
                     <div className={styles.letterContent}>
-                        <h2>To My Dearest</h2>
-                        <p>Our journey is just beginning...</p>
+                        <h2>Happy Valentine’s Day, Buds!</h2>
+                        <p>
+                            I may not have chocolates, flowers, or fancy gifts to give, but I hope you know that my love and appreciation for you are real and constant.
+                            Thank you for being my safe space, my laughter on hard days, and my strength when I feel low.
+                            You mean so much to me, not because of what you give, but because of who you are.
+                            I’m grateful for every memory, every joke, every moment we share.
+                            Today and always, you have my heart, my support, and my sincerest love. 💕
+                        </p>
                     </div>
                 </div>
 

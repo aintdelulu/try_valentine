@@ -95,27 +95,31 @@
     background: white;
     top: 5%;
     left: 5%;
-    padding: 2rem;
+    padding: 1.5rem;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     transform: translateY(0);
-    transition: transform 0.8s 1s ease;
+    transition: transform 0.8s 1.0s ease;
     z-index: 1;
+    overflow-y: auto;
 }
 
 .envelope.open .back {
-    transform: translateY(-150px);
+    transform: translateY(-200px);
 }
 
 .letterContent h2 {
     color: var(--deep-plum);
     font-family: var(--font-serif);
     margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 .letterContent p {
-    color: #555;
+    color: #444;
     font-family: var(--font-sans);
-    line-height: 1.6;
+    line-height: 1.5;
+    font-size: 0.95rem;
 }
 
 /* Petals */

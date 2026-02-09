@@ -25,7 +25,6 @@ const FinalePage = () => {
             }
 
             const particleCount = 50 * (timeLeft / duration);
-            // Confetti with gold and rose colors
             confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }, colors: ['#D4AF37', '#E8B4B8'] });
             confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }, colors: ['#D4AF37', '#E8B4B8'] });
         }, 250);
@@ -40,6 +39,12 @@ const FinalePage = () => {
 
     return (
         <div className={styles.container}>
+            {/* Background Video */}
+            <video autoPlay loop muted playsInline className={styles.bgVideo}>
+                <source src="/assets/vid1.MOV" type="video/quicktime" />
+            </video>
+            <div className={styles.overlay} />
+
             <motion.div
                 className={styles.hero}
                 initial={{ opacity: 0, y: 50 }}

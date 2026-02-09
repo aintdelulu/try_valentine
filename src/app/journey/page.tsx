@@ -24,8 +24,8 @@ const Chapter1 = () => {
         offset: ["start end", "end start"]
     });
 
-    const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
-    const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+    const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+    const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0]);
 
     return (
         <section ref={ref} className={styles.section}>
@@ -37,7 +37,7 @@ const Chapter1 = () => {
                     A simple coffee, a shared laugh, and the world suddenly felt brighter than ever before.
                 </p>
                 <div className={styles.photoFrame}>
-                    <div className={styles.placeholderPhoto}>❤</div>
+                    <img src="/assets/img1.jpg" alt="The day we met" className={styles.heroImage} />
                 </div>
             </motion.div>
         </section>
@@ -54,11 +54,10 @@ const Chapter2 = () => {
     const x = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
 
     const polaroids = [
-        { id: 1, caption: "Sunset at the beach" },
-        { id: 2, caption: "Our first hike" },
-        { id: 3, caption: "City lights" },
-        { id: 4, caption: "Rainy days" },
-        { id: 5, caption: "Mountain peak" },
+        { id: 2, src: "/assets/img2.jpg", caption: "Sunset Glow" },
+        { id: 3, src: "/assets/img3.jpg", caption: "Adventure Awaits" },
+        { id: 4, src: "/assets/img4.jpg", caption: "City Lights" },
+        { id: 5, src: "/assets/img5.jpg", caption: "Cozy Moments" },
     ];
 
     return (
@@ -72,7 +71,7 @@ const Chapter2 = () => {
                         whileHover={{ scale: 1.05, rotate: i % 2 === 0 ? 3 : -3 }}
                     >
                         <div className={styles.photoContainer}>
-                            <div className={styles.placeholderPhoto}>📷</div>
+                            <img src={p.src} alt={p.caption} className={styles.polaroidImg} />
                         </div>
                         <p className={styles.caption}>{p.caption}</p>
                     </motion.div>

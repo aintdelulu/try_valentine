@@ -1,26 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ethereal Midnight - Valentine's Journey
 
-## Getting Started
+This is a premium, interactive Valentine's Day website built with Next.js, Framer Motion, and 3D CSS.
 
-First, run the development server:
+## 🚀 Netlify Deployment
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+To host this project on Netlify:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1.  **Push to GitHub/GitLab/Bitbucket**: Make sure your code is in a remote repository.
+2.  **Import to Netlify**:
+    *   Go to [Netlify](https://app.netlify.com/).
+    *   Click "Add new site" > "Import an existing project".
+    *   Choose your Git provider and select `try_valentine`.
+3.  **Build Settings**:
+    *   Netlify should auto-detect the settings from `netlify.toml`.
+    *   **Build Command**: `npm run build`
+    *   **Publish directory**: `.next`
+4.  **Deploy**: Click "Deploy site".
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
+## 🛠 Local Development
 
 To learn more about Next.js, take a look at the following resources:
 

@@ -7,20 +7,20 @@
   --soft-rose: #E8B4B8;
   --midnight-black: #0A0A0A;
   --frosted-white: rgba(255, 255, 255, 0.1);
-  
+
   /* HSL variants for easier alpha control */
   --deep-plum-hsl: 271, 38%, 17%;
   --champagne-gold-hsl: 46, 65%, 52%;
   --soft-rose-hsl: 355, 41%, 81%;
-  
+
   /* Backgrounds */
   --bg-primary: var(--midnight-black);
   --bg-secondary: var(--deep-plum);
-  
+
   /* Typography */
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Montserrat', sans-serif;
-  
+
   /* Transitions */
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -42,7 +42,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+main {
+  position: relative;
+  z-index: 10;
+  /* Ensure content is above fixed background */
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-serif);
   font-weight: 700;
   color: var(--champagne-gold);
