@@ -1,10 +1,15 @@
-# Ethereal Midnight - Valentine's Journey
+## 🚀 Vercel Deployment (Recommended)
 
-This is a premium, interactive Valentine's Day website built with Next.js, Framer Motion, and 3D CSS.
+Next.js is built by Vercel, making this the easiest way to deploy:
+
+1.  **Connect GitHub**: Log into [Vercel](https://vercel.com/) and click "Add New" > "Project".
+2.  **Import Repository**: Select the `try_valentine` repo.
+3.  **Deploy**: Vercel will automatically detect Next.js settings. Just click **Deploy**.
 
 ## 🚀 Netlify Deployment
 
 To host this project on Netlify:
+...
 
 1.  **Push to GitHub/GitLab/Bitbucket**: Make sure your code is in a remote repository.
 2.  **Import to Netlify**:

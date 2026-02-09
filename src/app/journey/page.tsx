@@ -32,7 +32,7 @@ const Chapter1 = () => {
         <section ref={ref} className={styles.section}>
             <motion.div style={{ y, opacity }} className={styles.glassCard}>
                 <h2 className={styles.chapterTitle}>The Day Everything Changed</h2>
-                <div className={styles.date}>February 14, 2024</div>
+                <div className={styles.date}>February 14, 2026</div>
                 <p className={styles.storyText}>
                     In the quiet stillness of that winter morning, our paths finally crossed.
                     A simple coffee, a shared laugh, and the world suddenly felt brighter than ever before.
@@ -151,9 +151,9 @@ const Chapter5 = () => {
     const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
     const videos = [
-        { id: 0, src: "/assets/vid1.MOV", title: "Midnight Memories" },
-        { id: 1, src: "/assets/vid2.MOV", title: "Captured Joy" },
-        { id: 2, src: "/assets/vid3.MOV", title: "Our Future" },
+        { id: 0, src: "/assets/vid1.MOV", title: "2" },
+        { id: 1, src: "/assets/vid2.MOV", title: "Years" },
+        { id: 2, src: "/assets/vid3.MOV", title: "and Counting" },
     ];
 
     return (
