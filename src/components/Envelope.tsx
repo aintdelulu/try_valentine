@@ -52,17 +52,6 @@ const Envelope = () => {
                             I’m grateful for every memory, every joke, every moment we share.
                             Today and always, you have my heart, my support, and my sincerest love. 💕
                         </p>
-                        <motion.button
-                            className={styles.continueButton}
-                            onClick={handleContinue}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: isOpen ? 1 : 0 }}
-                            transition={{ delay: 2.5 }}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            Continue Our Journey →
-                        </motion.button>
                     </div>
                 </div>
 
@@ -89,6 +78,22 @@ const Envelope = () => {
                     )}
                 </AnimatePresence>
             </motion.div>
+
+            <AnimatePresence>
+                {isOpen && !isTransitioning && (
+                    <motion.button
+                        className={styles.continueButton}
+                        onClick={handleContinue}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 2.8, duration: 0.5 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        Continue Our Journey →
+                    </motion.button>
+                )}
+            </AnimatePresence>
 
             {/* Mask Transition Overlay */}
             <AnimatePresence>
