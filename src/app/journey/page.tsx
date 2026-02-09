@@ -12,6 +12,7 @@ const JourneyPage = () => {
             <Chapter1 />
             <Chapter2 />
             <Chapter3 />
+            <Chapter5 />
             <Chapter4 />
         </div>
     );
@@ -134,6 +135,35 @@ const Chapter4 = () => {
                     See The Surprise
                 </motion.button>
             </div>
+        </section>
+    );
+};
+
+const Chapter5 = () => {
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start end", "end start"]
+    });
+
+    const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
+    const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+
+    return (
+        <section ref={ref} className={styles.section}>
+            <motion.div style={{ scale, opacity }} className={styles.glassCard}>
+                <h2 className={styles.chapterTitle}>Captured in Motion</h2>
+                <p className={styles.storyText}>
+                    Every glance, every smile, every silent understanding.
+                    These are the fragments of us that I hold onto most dearly.
+                </p>
+                <div className={styles.videoFrame}>
+                    <video autoPlay loop muted playsInline className={styles.journeyVideo}>
+                        <source src="/assets/vid2.MOV" type="video/quicktime" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </motion.div>
         </section>
     );
 };
