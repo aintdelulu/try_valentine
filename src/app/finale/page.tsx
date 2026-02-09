@@ -43,7 +43,6 @@ const FinalePage = () => {
             <video
                 autoPlay
                 loop
-                muted
                 playsInline
                 preload="auto"
                 className={styles.bgVideo}

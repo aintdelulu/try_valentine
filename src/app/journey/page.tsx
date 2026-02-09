@@ -85,13 +85,14 @@ const Chapter2 = () => {
 const Chapter3 = () => {
     const reasons = [
         "Your laugh lights up my world",
-        "The way you make coffee",
+        "The way you make love",
         "Your endless kindness",
         "How you always listen",
         "Your creative spirit",
         "The way you dream big",
         "Your gentle heart",
-        "Your infectious energy"
+        "Your infectious energy",
+        "Your way of making me feel special"
     ];
 
     return (
@@ -174,7 +175,6 @@ const Chapter5 = () => {
                             <video
                                 autoPlay
                                 loop
-                                muted
                                 playsInline
                                 preload="auto"
                                 className={styles.journeyVideo}
