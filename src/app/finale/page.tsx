@@ -3,13 +3,11 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
-import { Volume2, VolumeX } from 'lucide-react';
 import styles from './page.module.css';
 
 const FinalePage = () => {
     const [response, setResponse] = useState('');
     const [isSent, setIsSent] = useState(false);
-    const [isMuted, setIsMuted] = useState(false);
 
     useEffect(() => {
         // Trigger confetti on load
@@ -19,7 +17,7 @@ const FinalePage = () => {
 
         const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
 
-        const interval: any = setInterval(function () {
+        const interval: ReturnType<typeof setInterval> = setInterval(function () {
             const timeLeft = animationEnd - Date.now();
 
             if (timeLeft <= 0) {
@@ -66,21 +64,12 @@ const FinalePage = () => {
                 autoPlay
                 loop
                 playsInline
-                muted={isMuted}
+                muted
                 preload="auto"
                 className={styles.bgVideo}
             >
                 <source src="/assets/vid1.MOV" type="video/mp4" />
             </video>
-
-            <motion.button
-                className={styles.muteToggle}
-                onClick={() => setIsMuted(!isMuted)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-            >
-                {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
-            </motion.button>
 
             <div className={styles.overlay} />
 
@@ -90,7 +79,7 @@ const FinalePage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.5 }}
             >
-                <h1 className={styles.mainMessage}>Happy Valentine's Day</h1>
+                <h1 className={styles.mainMessage}>Happy Valentine&apos;s Day</h1>
                 <p className={styles.subtext}>You are my greatest adventure.</p>
             </motion.div>
 
