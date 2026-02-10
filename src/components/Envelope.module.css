@@ -1,4 +1,9 @@
 .wrapper {
+    --env-w: 480px;
+    --env-h: 320px;
+    --env-half-w: 240px;
+    --env-half-h: 160px;
+
     perspective: 1500px;
     width: 100%;
     height: 100vh;
@@ -11,12 +16,19 @@
     gap: 2rem;
 }
 
+@media (max-width: 600px) {
+    .wrapper {
+        --env-w: 280px;
+        --env-h: 180px;
+        --env-half-w: 140px;
+        --env-half-h: 90px;
+    }
+}
+
 .envelope {
     position: relative;
-    width: 480px;
-    /* Slightly wider */
-    height: 320px;
-    /* Slightly taller */
+    width: var(--env-w);
+    height: var(--env-h);
     background: #fffcf5;
     /* Cleaner paper color */
     transform-style: preserve-3d;
@@ -51,9 +63,9 @@
     left: 0;
     width: 0;
     height: 0;
-    border-left: 240px solid transparent;
-    border-right: 240px solid transparent;
-    border-top: 160px solid #ead7bb;
+    border-left: var(--env-half-w) solid transparent;
+    border-right: var(--env-half-w) solid transparent;
+    border-top: var(--env-half-h) solid #ead7bb;
     /* Darker paper for flap */
     transform-origin: top;
     transition: transform 0.6s 0.6s ease;
@@ -76,9 +88,9 @@
     bottom: 0;
     width: 0;
     height: 0;
-    border-left: 240px solid #fdf5e6;
-    border-right: 240px solid #fdf5e6;
-    border-bottom: 160px solid #f3e5ab;
+    border-left: var(--env-half-w) solid #fdf5e6;
+    border-right: var(--env-half-w) solid #fdf5e6;
+    border-bottom: var(--env-half-h) solid #f3e5ab;
     z-index: 2;
     transform: translateZ(1px);
     transition: opacity 1s ease;
@@ -90,7 +102,7 @@
 
 .seal {
     position: absolute;
-    top: 150px;
+    top: calc(var(--env-half-h) - 10px);
     left: 50%;
     transform: translate(-50%, -50%);
     width: 60px;
@@ -139,7 +151,7 @@
 }
 
 .envelope.open .back {
-    transform: translateY(-350px) translateZ(5px);
+    transform: translateY(calc(-1 * var(--env-h) - 30px)) translateZ(5px);
     /* Lift higher */
     z-index: 5;
     visibility: visible;
@@ -148,9 +160,9 @@
 
 .envelope.showLetterOnly .back {
     transform: translateY(0) translateZ(5px);
-    width: 90%;
+    width: 95%;
     max-width: 600px;
-    height: 70vh;
+    height: 80vh;
     background: #fdf5e6;
     background-image:
         radial-gradient(circle at 10% 20%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
@@ -163,7 +175,7 @@
     /* Burnt edge feel */
     border-radius: 4px;
     /* Less rounded for old paper */
-    padding: 4rem 2rem;
+    padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
     color: #3b2f2f;
     /* Coffee brown text */
     overflow-y: auto;
@@ -207,11 +219,11 @@
     color: #1a1a1a;
     /* Darker for better contrast */
     font-family: var(--font-sans);
-    line-height: 1.8;
-    /* More spacing */
-    font-size: 1.2rem;
+    line-height: 1.6;
+    /* Slightly tighter for mobile */
+    font-size: clamp(1rem, 4vw, 1.2rem);
     /* Larger font */
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     text-align: center;
 }
 

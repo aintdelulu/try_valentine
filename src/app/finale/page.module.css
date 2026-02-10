@@ -55,7 +55,7 @@
 
 .interaction {
     max-width: 500px;
-    width: 100%;
+    width: 90%;
     position: relative;
     z-index: 10;
 }
@@ -65,7 +65,7 @@
     flex-direction: column;
     gap: 1.5rem;
     background: rgba(255, 255, 255, 0.05);
-    padding: 2.5rem;
+    padding: clamp(1.5rem, 5vw, 2.5rem);
     border-radius: 20px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -137,8 +137,8 @@
 
 .muteToggle {
     position: fixed;
-    top: 20px;
-    right: 80px;
+    top: 1rem;
+    right: 5rem;
     /* Space for audio toggle if needed, or just offset */
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);

@@ -21,7 +21,8 @@
 /* Chapter 1 */
 .glassCard {
     max-width: 800px;
-    padding: 3rem;
+    width: 90%;
+    padding: clamp(1.5rem, 5vw, 3rem);
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -138,18 +139,20 @@
 
 .timer {
     display: flex;
-    gap: 2rem;
+    gap: clamp(1rem, 3vw, 2rem);
     margin-bottom: 4rem;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .timeUnit {
     display: flex;
     flex-direction: column;
+    min-width: 80px;
 }
 
 .timeUnit span {
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 10vw, 4rem);
     font-weight: 700;
     color: var(--champagne-gold);
 }
@@ -191,7 +194,7 @@
     width: 100%;
     max-width: 800px;
     aspect-ratio: 16/9;
-    border-radius: 20px;
+    border-radius: clamp(10px, 3vw, 20px);
     overflow: hidden;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -245,8 +248,8 @@
 
 .videoThumb {
     flex-shrink: 0;
-    width: 200px;
-    height: 112px;
+    width: clamp(140px, 30vw, 200px);
+    height: clamp(80px, 17vw, 112px);
     border-radius: 10px;
     overflow: hidden;
     position: relative;
