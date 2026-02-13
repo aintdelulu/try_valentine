@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Volume2, VolumeX } from 'lucide-react';
 import styles from './page.module.css';
 
@@ -119,6 +120,8 @@ const Chapter3 = () => {
 };
 
 const Chapter4 = () => {
+    const router = useRouter();
+
     return (
         <section className={styles.section}>
             <div className={styles.countdownWrapper}>
@@ -132,7 +135,7 @@ const Chapter4 = () => {
                 <motion.button
                     className={styles.finaleButton}
                     whileHover={{ scale: 1.1 }}
-                    onClick={() => window.location.href = '/finale'}
+                    onClick={() => router.push('/finale')}
                 >
                     See The Surprise
                 </motion.button>
