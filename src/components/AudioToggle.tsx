@@ -4,23 +4,40 @@ import { useState, useEffect, useRef } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 import styles from './AudioToggle.module.css';
 
+// Singleton audio instance - created only once and persists across all navigations
+let audioInstance: HTMLAudioElement | null = null;
+
+const getAudioInstance = () => {
+    if (!audioInstance) {
+        audioInstance = new Audio('/assets/Ikaw at ako.mp3');
+        audioInstance.loop = true;
+    }
+    return audioInstance;
+};
+
 const AudioToggle = () => {
     const [isPlaying, setIsPlaying] = useState(true);
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
     useEffect(() => {
-        audioRef.current = new Audio('/assets/Ikaw at ako.mp3');
-        audioRef.current.loop = true;
+        // Get the singleton instance instead of creating a new one
+        audioRef.current = getAudioInstance();
 
-        // Attempt to autoplay the music
-        audioRef.current.play().catch(err => {
-            console.log("Autoplay blocked by browser", err);
-            // If autoplay is blocked, update state to reflect actual playing status
-            setIsPlaying(false);
-        });
+        // Attempt to autoplay only if not already playing
+        if (audioRef.current.paused) {
+            audioRef.current.play().catch(err => {
+                console.log("Autoplay blocked by browser", err);
+                // If autoplay is blocked, update state to reflect actual playing status
+                setIsPlaying(false);
+            });
+        } else {
+            // If already playing (from previous navigation), sync the state
+            setIsPlaying(true);
+        }
 
+        // Don't cleanup the audio on unmount - let it persist across navigations
         return () => {
-            audioRef.current?.pause();
+            // audioRef.current is intentionally NOT paused/destroyed here
             audioRef.current = null;
         };
     }, []);
