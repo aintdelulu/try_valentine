@@ -5,12 +5,19 @@ import { Volume2, VolumeX } from 'lucide-react';
 import styles from './AudioToggle.module.css';
 
 const AudioToggle = () => {
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(true);
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
     useEffect(() => {
         audioRef.current = new Audio('/assets/Ikaw at ako.mp3');
         audioRef.current.loop = true;
+
+        // Attempt to autoplay the music
+        audioRef.current.play().catch(err => {
+            console.log("Autoplay blocked by browser", err);
+            // If autoplay is blocked, update state to reflect actual playing status
+            setIsPlaying(false);
+        });
 
         return () => {
             audioRef.current?.pause();
