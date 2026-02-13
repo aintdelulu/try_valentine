@@ -143,7 +143,7 @@ const Chapter4 = () => {
 
 const Chapter5 = () => {
     const [activeVideo, setActiveVideo] = useState(0);
-    const [isMuted, setIsMuted] = useState(false);
+    const [isMuted, setIsMuted] = useState(true);
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
